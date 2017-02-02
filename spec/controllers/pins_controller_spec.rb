@@ -38,23 +38,23 @@ describe PinsController do
 
   describe 'GET pins/:id.json' do
 
-    let(:pin) { Pin.create( item: 'some title', description: 'some description', buy_sell: true )}
+    let(:pin) { Pin.create( item: 'some title', description: 'some description', buy_sell: true, user_id: user.id)}
 
     before do
-      user
       pin
+      get :show, params: { id: pin.id, format: :json }
     end
 
     it 'should return success status' do
       expect(response.status).to eq 200
     end
 
-    it 'should return a json array obj' do
-      expect(json).to be_an Array
+    it 'should return a json obj' do
+      expect(json).to be_a Hash
     end
 
     it 'should return a pin of the correct id' do
-      expect(json[0].id).to eq(pin.id)
+      expect(json["id"]).to eq(pin.id)
     end
 
   end

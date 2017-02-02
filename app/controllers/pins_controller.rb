@@ -20,9 +20,8 @@ class PinsController < ApplicationController
     @pin = Pin.find_by(id: params[:id])
 
     respond_to do |format|
-      format.json { render json: @pin }
+      format.json { render json: @pin.to_json(include: :user) }
     end
-
   end
 
   private
