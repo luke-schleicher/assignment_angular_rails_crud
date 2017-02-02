@@ -25,6 +25,18 @@ class PinsController < ApplicationController
   end
 
   def destroy
+    @pin = Pin.find_by(id: params[:id])
+
+    if @pin.destroy
+      respond_to do |format|
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.json { render json: @pin.to_json(include: :user) }
+      end
+    end
+
   end
 
   private

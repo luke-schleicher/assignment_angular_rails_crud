@@ -40,6 +40,7 @@ pinBoard.factory('pinService',
       var deletePin = function deletePin(id) {
         return Restangular.one('pins', id).remove().then(
           function(pin) {
+            console.log('pin', pin);
             for (var i = 0; i < _pins.length; i++) {
               if(_pins[i].id === pin.id) {
                 _pins.splice(i, 1);
