@@ -32,21 +32,27 @@ pinBoard.config(
             }
           }
         })
+
         .state('show', {
           url: '/pins/:id',
           views: {
             'main@': {
               templateUrl: '/templates/pins/show.html',
               controller: 'PinShowCtrl'
+            },
+            '@show': {
+              templateUrl: '/templates/pins/show.pin.html',
+              controller: 'PinShowCtrl'
             }
           }
         })
+
         .state('show.edit', {
           url: '/pins/:id/edit',
           views: {
-            'main@': {
-              templateUrl: '/templates/pins/show.html',
-              controller: 'PinShowCtrl'
+            '@show': {
+              template: '<pin-form form-data="pin" process-pin="processPin(valid)"></pin-form>',
+              controller: 'PinEditCtrl'
             }
           }
         });

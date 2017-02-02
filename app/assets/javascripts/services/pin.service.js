@@ -53,11 +53,27 @@ pinBoard.factory('pinService',
         )
       }
 
+      var updatePin = function updatePin(pin) {
+        pin.put().then(function(pin){
+
+          for (var i = 0; i < _pins.length; i++) {
+            if(_pins[i].id === pin.id) {
+              _pins[i] = pin;
+              break;
+            }
+          }          
+
+        }, function(response) {
+          console.error("Error!" + response);
+        }
+      }
+
       return {
         all: all,
         create: create,
         getPin: getPin,
-        deletePin: deletePin
+        deletePin: deletePin,
+        updatePin: updatePin
       };
     }
   ]
