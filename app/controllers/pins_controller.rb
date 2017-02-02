@@ -1,4 +1,5 @@
 class PinsController < ApplicationController
+
   def index
     @pins = Pin.all.order(created_at: :desc)
 
@@ -13,6 +14,15 @@ class PinsController < ApplicationController
     respond_to do |format|
       format.json { render json: @pin }
     end
+  end
+
+  def show
+    @pin = Pin.find_by(id: params[:id])
+
+    respond_to do |format|
+      format.json { render json: @pin }
+    end
+
   end
 
   private

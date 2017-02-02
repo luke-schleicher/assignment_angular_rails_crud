@@ -32,9 +32,14 @@ pinBoard.factory('pinService',
         )
       }
 
+      var getPin = function getPin(id) {
+        return Restangular.one('pins', id).get().$object;
+      };
+
       return {
         all: all,
-        create: create
+        create: create,
+        getPin: getPin
       };
     }
   ]

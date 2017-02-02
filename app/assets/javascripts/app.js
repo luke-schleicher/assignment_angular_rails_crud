@@ -31,6 +31,16 @@ pinBoard.config(
               return pinService.all();
             }
           }
+        })
+
+        .state('show', {
+          url: '/pins/:id',
+          views: {
+            'main@': {
+              templateUrl: '/templates/pins/show.html',
+              controller: 'PinShowCtrl'
+            }
+          }
         });
 
 }]);
