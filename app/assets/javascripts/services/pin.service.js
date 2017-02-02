@@ -36,10 +36,29 @@ pinBoard.factory('pinService',
         return Restangular.one('pins', id).get().$object;
       };
 
+      // TODO: FIX THIS ACCORDING TO RESTANGULAR, EXTEND?
+      var deletePin = function deletePin(id) {
+        return Restangular.one('pins', id).remove().then(
+          function(pin) {
+            for (var i = 0; i < _pins.length; i++) {
+              if(_pins[i].id === pin.id) {
+                _pins.splice(i, 1);
+                break;
+              }
+            }
+            return pin;
+          },
+          function(response) {
+            console.error("Error!" + response);
+          }
+        )
+      }
+
       return {
         all: all,
         create: create,
-        getPin: getPin
+        getPin: getPin,
+        deletePin: deletePin
       };
     }
   ]

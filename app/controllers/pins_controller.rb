@@ -24,6 +24,9 @@ class PinsController < ApplicationController
     end
   end
 
+  def destroy
+  end
+
   private
 
   def pin_params
