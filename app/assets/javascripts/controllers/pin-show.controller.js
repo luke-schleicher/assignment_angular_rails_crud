@@ -9,6 +9,6 @@ function($scope, $stateParams, $state, pinService) {
   $scope.deletePin = function () {
     pinService.deletePin($scope.pin);
     $state.go('index');
-  }
+  };
 
 }]);

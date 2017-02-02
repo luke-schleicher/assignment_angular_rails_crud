@@ -32,9 +32,17 @@ pinBoard.config(
             }
           }
         })
-
         .state('show', {
           url: '/pins/:id',
+          views: {
+            'main@': {
+              templateUrl: '/templates/pins/show.html',
+              controller: 'PinShowCtrl'
+            }
+          }
+        })
+        .state('show.edit', {
+          url: '/pins/:id/edit',
           views: {
             'main@': {
               templateUrl: '/templates/pins/show.html',

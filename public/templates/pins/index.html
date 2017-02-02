@@ -3,34 +3,7 @@
 <hr>
 <h2>New Pin</h2>
 
-<form name="pinForm" ng-submit="processPin(pinForm.$valid)">
-
-  <div class="form-group">
-    <label>Title
-      <input type="text" name="item" ng-model="formData.item" class="form-control" required >
-    </label>
-  </div>
-
-  <div class="form-group">
-      <label>Buy
-        <input type="radio" name="type" ng-model="formData.type" class="form-control" ng-value="true" required>
-      </label>
-      <label>Sell
-        <input type="radio" name="type" ng-model="formData.type" class="form-control" ng-value="false" required>
-      </label>
-  </div>
-
-  <div class="form-group">
-    <label>Description
-      <textarea name="description" ng-model="formData.description" class="form-control"></textarea>
-    </label>
-  </div>
-
-  <div class="form-group">
-    <input type="submit" class="btn btn-primary" value="Create Pin" ng-disabled="pinForm.$invalid">
-  </div>
-
-</form>
+<pin-form form-data="formData" process-pin="processPin(valid)"></pin-form>
 
 <hr>
 

@@ -4,7 +4,7 @@ class PinsController < ApplicationController
     @pins = Pin.all.order(created_at: :desc)
 
     respond_to do |format|
-      format.json { render json: @pins }
+      format.json { render json: @pins.to_json(include: :user) }
     end
   end
 
@@ -37,6 +37,20 @@ class PinsController < ApplicationController
       end
     end
 
+  end
+
+  def update
+    @pin = Pin.find_by(id: params[:id])
+
+    if @pin.update(pin_params)
+      respond_to do |format|
+        format.json { render json: @pin.to_json(include: :user) }
+      end
+    else
+      respond_to do |format|
+        format.json { render json: @pin }
+      end
+    end
   end
 
   private
