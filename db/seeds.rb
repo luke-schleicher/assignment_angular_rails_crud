@@ -16,8 +16,13 @@ Pin.destroy_all
 
 puts "Creating Users"
 
-N.times do
-  User.create(username: Faker::Name.name)
+N.times do |i|
+  User.create(
+    username: Faker::Name.name,
+    email: "user#{i}@foo.com",
+    password: "password",
+    password_confirmation: "password"
+  )
 end
 
 puts "Adding pins to each user"

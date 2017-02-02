@@ -1,4 +1,4 @@
-var pinBoard = angular.module('pinBoard', ['ui.router', 'restangular']);
+var pinBoard = angular.module('pinBoard', ['ui.router', 'restangular', 'Devise']);
 
 pinBoard.constant('_', window._);
 pinBoard.run(function($rootScope) {

@@ -9,6 +9,9 @@ gem 'angularjs-rails'
 gem 'angular_rails_csrf'
 gem 'bootstrap-sass'
 gem 'devise'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-angular-devise'
+end
 
 gem 'bower-rails', '~> 0.11.0'
 
