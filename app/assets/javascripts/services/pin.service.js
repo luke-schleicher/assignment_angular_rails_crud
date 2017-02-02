@@ -7,10 +7,9 @@ pinBoard.factory('pinService',
       var all = function all() {
         return Restangular.all('pins').getList().then(function (response) {
           // our binding will be servered
-          console.log("all response", response)
-          _pins.length = 0
-          _pins.concat(response);
-          console.log("_pins", _pins)
+          // we can fix it by removing the resolve every time we load the index view
+          // or having this request resolve only when you first load static_pages
+          _pins = response;
           return _pins;
         });
       };
