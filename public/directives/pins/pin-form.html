@@ -8,10 +8,10 @@
 
   <div class="form-group">
       <label>Buy
-        <input type="radio" name="type" ng-model="formData.type" class="form-control" ng-value="true" required>
+        <input type="radio" name="type" ng-model="formData.buy_sell" class="form-control" ng-value="true" required>
       </label>
       <label>Sell
-        <input type="radio" name="type" ng-model="formData.type" class="form-control" ng-value="false" required>
+        <input type="radio" name="type" ng-model="formData.buy_sell" class="form-control" ng-value="false" required>
       </label>
   </div>
 
@@ -22,7 +22,7 @@
   </div>
 
   <div class="form-group">
-    <input type="submit" class="btn btn-primary" value="Create Pin" ng-disabled="pinForm.$invalid">
+    <input type="submit" class="btn btn-primary" value="Submit" ng-disabled="pinForm.$invalid">
   </div>
 
 </form>

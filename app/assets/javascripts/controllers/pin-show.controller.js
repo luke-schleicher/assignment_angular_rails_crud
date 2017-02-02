@@ -7,8 +7,11 @@ function($scope, $stateParams, $state, pinService) {
     });
 
   $scope.deletePin = function () {
-    pinService.deletePin($scope.pin);
-    $state.go('index');
+    pinService.deletePin($scope.pin).then(
+      function() {
+        $state.go('index');        
+      }
+    );
   };
 
 }]);

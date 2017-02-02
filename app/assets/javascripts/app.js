@@ -48,7 +48,7 @@ pinBoard.config(
         })
 
         .state('show.edit', {
-          url: '/pins/:id/edit',
+          url: '/edit',
           views: {
             '@show': {
               template: '<pin-form form-data="pin" process-pin="processPin(valid)"></pin-form>',

@@ -4,10 +4,13 @@ pinBoard.controller('PinEditCtrl', ['$scope', '$stateParams', '$state', 'pinServ
     $scope.pin = pin;
   });
 
-  var processPin = function(valid) {
+  $scope.processPin = function(valid) {
     if (valid) {
-      pinService.updatePin($scope.pin);
-      $state.go('show', { id: $scope.pin.id });
+      pinService.updatePin($scope.pin).then(
+        function() {
+          $state.go('show', { id: $scope.pin.id });
+        }
+      );
     }
   };
 

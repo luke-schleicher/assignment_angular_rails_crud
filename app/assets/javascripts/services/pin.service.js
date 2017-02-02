@@ -7,7 +7,10 @@ pinBoard.factory('pinService',
       var all = function all() {
         return Restangular.all('pins').getList().then(function (response) {
           // our binding will be servered
-          _pins = response;
+          console.log("all response", response)
+          _pins.length = 0
+          _pins.concat(response);
+          console.log("_pins", _pins)
           return _pins;
         });
       };
@@ -17,7 +20,7 @@ pinBoard.factory('pinService',
           pin: {
             item: params.item,
             description: params.description,
-            buy_sell: params.type
+            buy_sell: params.buy_sell
           }
         };
 
@@ -56,13 +59,13 @@ pinBoard.factory('pinService',
       var updatePin = function updatePin(pin) {
 
         pin.put().then(function(pin){
-
+          console.log("returned pin", pin)
           for (var i = 0; i < _pins.length; i++) {
             if(_pins[i].id === pin.id) {
               _pins[i] = pin;
               break;
             }
-          }          
+          }
 
         }, function(response) {
           console.error("Error!" + response);
