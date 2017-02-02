@@ -14,15 +14,17 @@ pinBoard.factory('pinService',
 
       var create = function create(params) {
         var newPin = {
-          title: params.title,
-          description: params.description,
-          buy_sell: params.type
-        }
+          pin: {
+            item: params.item,
+            description: params.description,
+            buy_sell: params.type
+          }
+        };
 
         return Restangular.all('pins').post(newPin).then(
           function(pin) {
             _pins.unshift(pin);
-            return pin
+            return pin;
           },
           function(response) {
             console.error("Error!" + response);

@@ -3,11 +3,11 @@
 <hr>
 <h2>New Pin</h2>
 
-<form name="pinForm" ng-submit="processPin(pin-form.$valid)">
+<form name="pinForm" ng-submit="processPin(pinForm.$valid)">
 
   <div class="form-group">
     <label>Title
-      <input type="text" name="title" ng-model="formData.title" class="form-control" required >
+      <input type="text" name="item" ng-model="formData.item" class="form-control" required >
     </label>
   </div>
 
@@ -28,7 +28,7 @@
 
   <div class="form-group">
     <input type="submit" class="btn btn-primary" value="Create Pin" ng-disabled="pinForm.$invalid">
-  </div>  
+  </div>
 
 </form>
 

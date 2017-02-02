@@ -10,7 +10,6 @@ class PinsController < ApplicationController
   def create
     @current_user = User.first
     @pin = @current_user.pins.create(pin_params)
-
     respond_to do |format|
       format.json { render json: @pin }
     end
@@ -19,6 +18,6 @@ class PinsController < ApplicationController
   private
 
   def pin_params
-    params.require(:pin).permit(:title, :description, :buy_sell)
+    params.require(:pin).permit(:item, :description, :buy_sell)
   end
 end
