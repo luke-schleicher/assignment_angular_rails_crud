@@ -1,11 +1,13 @@
 pinBoard.controller('PinShowCtrl', ['$scope', '$stateParams', '$state', 'pinService',
-function($scope, $state, $stateParams, pinService) {
+function($scope, $stateParams, $state, pinService) {
 
-  $scope.pin = pinService.getPin($stateParams.id);
+  pinService.getPin($stateParams.id).then(
+    function (pin) {
+      $scope.pin = pin;
+    });
 
   $scope.deletePin = function () {
-    console.log('controller pin', $scope.pin);
-    pinService.deletePin($scope.pin.id);
+    pinService.deletePin($scope.pin);
     $state.go('index');
   }
 
