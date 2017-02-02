@@ -1,0 +1,7 @@
+<h1>Pins</h1>
+
+<div ng-repeat="pin in pins">
+  <h3>{{ pin.buy_sell ? 'Buy' : 'Sell' }} | {{ pin.item }}</h3>
+  <p><small>Posted by {{ pin.user }}</small></p>
+  <p>{{ pin.description }}</p>
+</div>

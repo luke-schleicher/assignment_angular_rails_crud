@@ -22,7 +22,13 @@ pinBoard.config(
           url: '/pins',
           views: {
             'main@': {
-              template: '<div>{{ 2+ 2 }}</div>'
+              templateUrl: '/templates/pins/index.html',
+              controller: 'PinIndexCtrl'
+            }
+          },
+          resolve: {
+            pins: function(pinService) {
+              return pinService.all();
             }
           }
         });
