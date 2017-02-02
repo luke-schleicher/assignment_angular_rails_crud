@@ -54,6 +54,7 @@ pinBoard.factory('pinService',
       }
 
       var updatePin = function updatePin(pin) {
+
         pin.put().then(function(pin){
 
           for (var i = 0; i < _pins.length; i++) {
@@ -65,8 +66,8 @@ pinBoard.factory('pinService',
 
         }, function(response) {
           console.error("Error!" + response);
-        }
-      }
+        })
+      };
 
       return {
         all: all,

@@ -2,7 +2,7 @@ pinBoard.controller('PinEditCtrl', ['$scope', '$stateParams', '$state', 'pinServ
 
   pinService.getPin($stateParams.id).then(function(pin) {
     $scope.pin = pin;
-  };
+  });
 
   var processPin = function(valid) {
     if (valid) {

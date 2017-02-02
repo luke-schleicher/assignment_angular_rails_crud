@@ -1,6 +1,6 @@
 <h2>{{ pin.item }}</h2>
 <h3> {{ pin.type ? "Searching For" : "For Sale" }}</h3>
-<a>Edit Pin</a>
+<a ui-sref="show.edit">Edit Pin</a>
 <a ng-click="deletePin()">Delete Pin</a>
 
 <p>{{ pin.description }}</p>

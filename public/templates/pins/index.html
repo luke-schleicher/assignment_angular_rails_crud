@@ -11,6 +11,6 @@
 
 <div ng-repeat="pin in pins">
   <h3>{{ pin.buy_sell ? 'Buy' : 'Sell' }} | <a ui-sref="show({ id: pin.id })">{{ pin.item }}</a></h3>
-  <p><small>Posted by {{ pin.user }}</small></p>
+  <p><small>Posted by {{ pin.user.username }}</small></p>
   <p>{{ pin.description }}</p>
 </div>
