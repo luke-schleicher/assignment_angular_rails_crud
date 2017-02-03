@@ -1,8 +1,15 @@
 pinBoard.factory('userService',
-  ['Restangular',
-    function(Restangular) {
+  ['Restangular', 'Auth',
+    function(Restangular, Auth) {
 
-      var _currentUser = Restangular.one('users', 1).get().$object
+      var _currentUser;
+
+      Auth.currentUser().then(function(user) {
+        _currentUser = user;
+        console.log(user);
+      }, function(response) {
+        console.error(response);
+      });
 
       var getCurrent = function () {
         return _currentUser

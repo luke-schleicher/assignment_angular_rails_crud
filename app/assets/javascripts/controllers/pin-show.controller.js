@@ -1,5 +1,7 @@
-pinBoard.controller('PinShowCtrl', ['$scope', '$stateParams', '$state', 'pinService',
-function($scope, $stateParams, $state, pinService) {
+pinBoard.controller('PinShowCtrl', ['$scope', '$stateParams', '$state', 'pinService', 'userService',
+function($scope, $stateParams, $state, pinService, userService) {
+
+  $scope.currentUser = userService.getCurrent();
 
   pinService.getPin($stateParams.id).then(
     function (pin) {

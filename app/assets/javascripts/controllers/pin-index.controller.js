@@ -1,7 +1,9 @@
 pinBoard.controller('PinIndexCtrl',
-  ['$scope', 'pinService', 'pins',
-    function($scope, pinService, pins) {
+  ['$scope', 'pinService', 'userService', 'pins',
+    function($scope, pinService, userService, pins) {
       $scope.pins = pins;
+
+      $scope.currentUser = userService.getCurrent();
 
       $scope.processPin = function(valid) {
         if (valid) {
